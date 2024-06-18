@@ -1,0 +1,255 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "A Library Management System to show books \n\nMade with ❤️ by Gakuba Edmond",
+        "title": "Equipment Distribution System",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "Gakuba Edmond",
+            "email": "edmondgaks@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "tags": [{
+            "name": "USER OPERATIONS",
+            "description": "Operations on users"
+        },
+        {
+            "name": "BOOKS OPERATIONS",
+            "description": "Operations on books"
+        }
+    ],
+    "security": [{
+        "Bearer": []
+    }],
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "auth-token",
+            "in": "header",
+            "bearerFormat": "JWT",
+            "scheme": "bearer"
+        }
+    },
+    "paths": {
+        "/users/login": {
+            "post": {
+                "tags": [
+                    "USER OPERATIONS"
+                ],
+                "summary": "Login",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "type": "object",
+                    "consumes": "application/json",
+                    "properties": {
+                        "email": {
+                            "type": "string",
+                            "required": "true"
+                        },
+                        "password": {
+                            "type": "string",
+                            "required": "true"
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/users/admin/register": {
+            "post": {
+                "tags": [
+                    "USER OPERATIONS"
+                ],
+                "summary": "Login",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "type": "object",
+                    "consumes": "application/json",
+                    "properties": {
+                        "email": {
+                            "type": "string",
+                            "required": "true"
+                        },
+                        "password": {
+                            "type": "string",
+                            "required": "true"
+                        },
+                        "firstName": {
+                            "type": "string",
+                            "required": "true"
+                        },
+                        "lastName": {
+                            "type": "string",
+                            "required": "true"
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/users/profile": {
+            "get": {
+                "tags": [
+                    "USER OPERATIONS"
+                ],
+                "summary": "Get user profile",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/books": {
+            "get": {
+                "tags": [
+                    "BOOKS OPERATIONS"
+                ],
+                "summary": "Get BOOKS",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                        "in": "query",
+                        "name": "page",
+                        "type": "number"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/books/register": {
+            "post": {
+                "tags": [
+                    "BOOKS OPERATIONS"
+                ],
+                "summary": "Register employee laptop",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "type": "object",
+                    "consumes": "application/json",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "required": "true"
+                        },
+                        "author": {
+                            "type": "string",
+                            "required": "true"
+                        },
+                        "publisher": {
+                            "type": "string",
+                            "required": "true"
+                        },
+                        "publicationYear": {
+                            "type": "number",
+                            "required": "true"
+                        },
+                        "subject": {
+                            "type": "string",
+                            "required": "true"
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        }
+    }
+}

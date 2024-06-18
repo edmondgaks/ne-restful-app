@@ -78,7 +78,7 @@ export const Dashboard = () => {
 
   return (
     <>
-      <h2>BOOKS</h2>
+      <h2>Table For Books</h2>
       <input
         type="text"
         value={searchQuery}
